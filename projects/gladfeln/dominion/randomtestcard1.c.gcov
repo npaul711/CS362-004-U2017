@@ -1,0 +1,68 @@
+        -:    0:Source:randomtestcard1.c
+        -:    0:Graph:randomtestcard1.gcno
+        -:    0:Data:randomtestcard1.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include "dominion.h"
+        -:    2:#include "dominion_helpers.h"
+        -:    3:#include "rngs.h"
+        -:    4:#include <string.h>
+        -:    5:#include <stdio.h>
+        -:    6:#include <math.h>
+        -:    7:#include <stdlib.h>
+        -:    8:#include <assert.h>
+        -:    9:#include <time.h>
+        -:   10:
+        -:   11:// code has been modified to fit my needs from gitHub user maysw. It can be found at https://github.com/maysw/CS-362/blob/Assignment-3/dominion/randomtestcard.c
+        -:   12:
+        -:   13:// Village card test
+        -:   14:
+        -:   15:#define MAX_TESTS 1000
+        -:   16:
+        1:   17:int main() {
+        -:   18:	struct gameState state;
+        1:   19:	int k[10] = {adventurer, gardens, minion, village, embargo, mine, cutpurse, baron, tribute, smithy};
+        1:   20:	int r = 0;
+        1:   21:	int i = 0;
+        1:   22:	int players = 0;
+        1:   23:	int player = 0;
+        1:   24:	int seed = 0;
+        1:   25:	int errors = 0;
+        -:   26:	struct gameState temp;
+        -:   27:
+        1:   28:	srand(time(NULL));
+        -:   29:	
+        1:   30:	printf("Beginning village random card test.....\n");
+        -:   31:	
+     1001:   32:	for(i = 0; i < MAX_TESTS; i++) {
+        -:   33:		do {
+     2035:   34:			players = rand() % 4;
+     2035:   35:		} while (players < 2);
+        -:   36:	
+     1000:   37:	seed = rand();
+     1000:   38:	initializeGame(players, k, seed, &state);
+        -:   39:
+        -:   40:		do {
+     1717:   41:			player = rand() % players;
+     1717:   42:		} while (player == 0);	
+        -:   43:		
+        -:   44:		
+     1000:   45:	state.whoseTurn = player;
+     1000:   46:	state.deckCount[player] = rand() % MAX_DECK;
+     1000:   47:	state.discardCount[player] = rand() % MAX_DECK;
+     1000:   48:	state.handCount[player] = rand() % MAX_HAND;
+     1000:   49:	state.hand[player][0] = village;
+     1000:   50:	state.numActions = rand() % 10;
+     1000:   51:	memcpy(&temp, &state, sizeof(struct gameState));
+     1000:   52:	r = cardEffect(village, 0, 0, 0, &state, 0, 0);
+     1000:   53:	assert(r == 0);
+        -:   54:	
+     1000:   55:	if (state.deckCount[player] != (temp.deckCount[player] - 1)) {errors++;}
+     1000:   56:	if (state.numActions != (temp.numActions + 2)) {errors++;}
+        -:   57:	
+        -:   58:	}
+        1:   59:	printf("%d\n errors in random village test... \n", errors);
+        -:   60:	
+        -:   61:	
+        1:   62:	return 0;
+        -:   63:}
