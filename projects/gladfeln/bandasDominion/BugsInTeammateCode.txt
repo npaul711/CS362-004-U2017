@@ -1,0 +1,17 @@
+Nicholas Gladfelter
+CS 362
+Assignment-5
+
+BUGS
+
+All of these were printed out at unitestresults.out:
+
+Unit test 3 has a bug inside of the isGameOver function. The unit test tests to see if the correct amount of treasuries are in the users hand. This test fails as there is not the correct amount of treasuries in the users hand. 
+
+Unit test 3 has a second bug inside of the isGameOver function. This time the purchases were tested to see if when buying a treasury card with ten total treasure coins in your hand succeeds. The test fails and the cards, purchases and treasuries do not align up correctly as expected. 
+
+Unit test 4 has a bug when ten copper coins are purchased. The player starts with zero copper coins and then ten copper coins are added to the users total. The test then checks to see if the total amount of treasure coins equals ten - one for each copper coin. This test fails as the amount did not equal ten. Unit test 4 has the same bug for both the silver and gold totals. This means that there is a problem when any treasure cards and bought as the total amount for the user’s hand is not totaling up correctly. 
+
+Random adventurer test card has an error initializing the game and less than 1% of the code is executed. 
+
+I found these bugs using the test scripts created in Assignment #3 and Assignment #4. I included some print statements for passing and failing that show what exactly is going on inside of the code. This gives me a better idea of what is going on after execution. It makes it really easy when the print statement shows that something has gone badly. Most of the time we know that something has gone badly via the assert function. 

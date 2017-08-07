@@ -1,0 +1,68 @@
+
+ ... Start unit test 1 ........ 
+
+ ... End unit test 1 ........ 
+
+Pass
+
+Pass
+
+Pass
+
+ Starting unit test 2 ..... 
+
+ Passed 
+
+ Ending unit test 2 ..... 
+
+ Starting unit test 3 ..... 
+
+ Testing for insufficient coins: 
+
+ Passed - Insufficient coins 
+
+ Test good purchase: 
+
+ Failed - Not good purchase 
+
+ Test exact amount: 
+
+ Failed - Not exact amount 
+
+ Test if there are no buys left: 
+
+ Passed - Disallowed additional buy 
+
+ Ending unit test 3 ..... 
+
+ Start Unit test 4.....
+
+ Testing copper coins .....
+
+ Copper coins should equal 10.....
+
+ Failed - Copper coins not equal to 10 
+
+ Testing silver coins .....
+
+ Silver coins should equal 10.....
+
+ Failed - Silver coins not equal to 10 
+
+ Testing gold coins .....
+
+ Gold coins should equal 10.....
+
+ Failed - Gold coins not equal to 10 
+
+ Testing non money card .....
+
+ There should be zero coins .....
+
+ Passed - Zero cards 
+
+ End of Unit Test 4.....
+File 'dominion.c'
+No executable lines
+Removing 'dominion.c.gcov'
+
